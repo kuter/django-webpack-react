@@ -9,6 +9,9 @@ module.exports = {
         path: path.resolve('./assets/webpack_bundles/'),
         filename: "[name]-[hash].js"
     },
+    devServer: {
+        host: 'localhost', 
+    },
     plugins: [
         new BundleTracker({filename: './webpack-stats.json'})
     ],

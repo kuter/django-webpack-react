@@ -111,5 +111,8 @@ venv.bak/
 node_modules/
 package-lock.json
 
+# yarn stuff
+yarn.lock
+
 # webpack stuff
 webpack-*.json
