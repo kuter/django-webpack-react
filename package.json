@@ -5,14 +5,19 @@
   "main": "index.js",
   "scripts": {
     "start:dev": "webpack-dev-server --config=webpack.local.config.js --port 1234",
-    "build:prod": "webpack --config webpack.prod.config.js --progress --colors"
+    "build:prod": "webpack --config webpack.prod.config.js --progress --colors",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "react-scripts": "^3.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
