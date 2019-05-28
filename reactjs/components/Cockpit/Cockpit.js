@@ -1,33 +1,31 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Radium from "radium";
 import "./Cockpit.css";
 import Persons from "../Persons/Persons.js";
 
 const cockpit = props => {
-  const style = {
-    backgroundColor: "green",
-    color: "white",
-    font: "inherit",
-    border: "1px solid blue",
-    padding: "8px",
-    cursor: "pointer",
-    ":hover": {
-      backgroundColor: "lightgreen",
-      color: "black"
-    }
-  };
-  if (props.showPersons) {
-    style.backgroundColor = "red";
-    style[":hover"] = {
-      backgroundColor: "salmon",
-      color: "black"
+  useEffect(() => {
+    console.log("[Cocpit.js] useEffect()");
+    // Http request
+    setTimeout(() => {
+      alert("saved data to cloud!");
+    }, 1000);
+    // }, [props.persons]); // on props.persons change
+    return () => {
+      console.log("[Cocpit.js] cleanup work in useEffect");
     };
-  }
+  }, []); // only once, componentDidMount
+
+  useEffect(() => {
+    console.log("[Cocpit.js] 2nd useEffect()");
+    return () => {
+      console.log("[Cocpit.js] 2nd cleanup work in useEffect");
+    };
+  });
 
   const assignedClasses = [];
 
   if (props.persons.length <= 2) {
-    console.log("elo");
     assignedClasses.push("red"); // assignedClasses = ['red']
   }
   if (props.persons.length <= 1) {
@@ -35,13 +33,11 @@ const cockpit = props => {
   }
   return (
     <div>
-      <h1>Hi, Im a React App</h1>
+      <h1>{props.title}</h1>
       <p className={assignedClasses.join(" ")}>This is really working!</p>
-      <button style={style} onClick={props.clicked}>
-        Toggle Persons
-      </button>
+      <button onClick={props.clicked}>Toggle Persons</button>
     </div>
   );
 };
 
-export default Radium(cockpit);
+export default cockpit;
