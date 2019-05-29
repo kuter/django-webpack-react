@@ -104,6 +104,7 @@ class App extends Component {
               title={this.props.appTitle}
               persons={this.state.persons}
               showPersons={this.state.showPersons}
+              personsLength={this.state.persons.length}
               clicked={this.togglePersonHandler}
             />
           ) : null}
