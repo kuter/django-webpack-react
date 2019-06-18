@@ -127,3 +127,13 @@ WEBPACK_LOADER = {
         "IGNORE": [r".+\.hot-update.js", r".+\.map"],
     }
 }
+
+# Allow any settings to be defined in local_settings.py which should be
+# ignored in your version control system allowing for settings to be
+# defined per machine.
+try:
+    from local_settings import *  # noqa
+    if 'apply_settings' in globals():
+        apply_settings(globals())  # noqa
+except (ImportError, NameError):
+    pass
