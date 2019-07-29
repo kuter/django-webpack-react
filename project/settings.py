@@ -121,9 +121,19 @@ WEBPACK_LOADER = {
     "DEFAULT": {
         "CACHE": not DEBUG,
         "BUNDLE_DIR_NAME": "webpack_bundles/",  # must end with slash
-        "STATS_FILE": os.path.join(BASE_DIR, "webpack-stats-local.json"),
+        "STATS_FILE": os.path.join(BASE_DIR, "reactjs/config/webpack-stats-prod.json"),
         "POLL_INTERVAL": 0.1,
         "TIMEOUT": None,
         "IGNORE": [r".+\.hot-update.js", r".+\.map"],
     }
 }
+
+# Allow any settings to be defined in local_settings.py which should be
+# ignored in your version control system allowing for settings to be
+# defined per machine.
+try:
+    from local_settings import *  # noqa
+    if 'apply_settings' in globals():
+        apply_settings(globals())  # noqa
+except (ImportError, NameError):
+    pass

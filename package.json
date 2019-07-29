@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:dev": "webpack-dev-server --config=webpack.local.config.js --port 1234",
-    "build:prod": "webpack --config webpack.prod.config.js --progress --colors"
+    "start:dev": "webpack-dev-server --config=reactjs/config/webpack.local.config.js --port 1234",
+    "build:prod": "webpack --config reactjs/config/webpack.prod.config.js --progress --colors"
   },
   "keywords": [],
   "author": "",
