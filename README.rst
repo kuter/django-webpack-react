@@ -21,7 +21,13 @@ Install python and node modules
 
     $ make development
 
-Add `local_settings.py` with content:
+in order to create production bundle type:
+
+.. code:: bash 
+    
+    $ npm run build:prod
+
+or for local development add following lines to `local_settings.py`:
 
 .. code:: python
 
