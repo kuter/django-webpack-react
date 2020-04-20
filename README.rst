@@ -9,7 +9,7 @@ A Django 2.x with ReactJS project template.
 Running
 -------
 
-Setup virtualenv for example with virtualenvwrapper
+Setup virtualenv for example with virtualenvwrapper:
 
 .. code:: bash
 
@@ -21,7 +21,28 @@ Install python and node modules
 
     $ make development
 
-And run project
+Add `local_settings.py` with content:
+
+.. code:: python
+
+    import os
+
+
+    def apply_settings(settings):
+        settings['DEBUG'] = True
+        settings['WEBPACK_LOADER'] = {
+            "DEFAULT": {
+                "CACHE": False,
+                "BUNDLE_DIR_NAME": "webpack_bundles/",  # must end with slash
+                "STATS_FILE": os.path.join(settings['BASE_DIR'], "reactjs/config/webpack-stats-local.json"),
+                "POLL_INTERVAL": 0.1,
+                "TIMEOUT": None,
+                "IGNORE": [r".+\.hot-update.js", r".+\.map"],
+                }
+            }
+
+
+And run project:
 
 .. code:: bash
 
